@@ -32,15 +32,15 @@ public class OurClassifier implements Classifier{
         Integer notsurvived = 0;
        
         for (int i=0; i< ourExamples.size();i++){
-            if (ourExamples.get(i).getLabel() == 1){ //if survived
+            if (ourExamples.get(i).getLabel() == 1){ //calculate number of examples that survived
                 survived++;
-            }else if (ourExamples.get(i).getLabel() == -1){
+            }else if (ourExamples.get(i).getLabel() == -1){ //calculate number of examples that didn't survive
                 notsurvived++;
             }
         }
-        Integer majorityLabelCount = Math.max(survived, notsurvived);
+        Integer majorityLabelCount = Math.max(survived, notsurvived); 
         Integer majorityLabelBinary = 0; 
-        if (majorityLabelCount == notsurvived){
+        if (majorityLabelCount == notsurvived){//convert majoritylabel from value to class/label binary (-1 or 1)
             majorityLabelBinary = -1; 
         }else{
             majorityLabelBinary = 1; 
@@ -57,16 +57,7 @@ public class OurClassifier implements Classifier{
                 // At a base case TODO 
             }
 
-
-
-
         }
-
-
-        
-
-        
-
 
 
 	}
@@ -92,22 +83,7 @@ class Main {
     // DataSet ourData = new DataSet("C:\\Users\\jvw42\\ML\\assign2-starter\\code\\ml\\data\\titanic-train.csv");
 
     DataSet ourData = new DataSet("/Users/ASW/Documents/GitHub/ML-Decision-Tree/code/ml/data/titanic-train.csv");
-    ArrayList<Example> ourExamples = ourData.getData(); // all the examples in the dataset 
-    Integer survived = 0;
-    Integer notsurvived = 0;
    
-    for (int i=0; i< ourExamples.size();i++){
-        if (ourExamples.get(i).getLabel() == 1){ //if survived
-            survived++;
-        }else if (ourExamples.get(i).getLabel() == -1){
-            notsurvived++;
-        }
-    }
-    Integer majorityLabel = Math.max(survived, notsurvived);
-    System.out.println("survived number" + survived);
-    System.out.println("not survived number" + notsurvived);
-    System.out.println("majority number" + majorityLabel);
-
       // print the object
       System.out.println(ourData.toString());
     }
