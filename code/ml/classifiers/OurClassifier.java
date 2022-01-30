@@ -67,13 +67,55 @@ public class OurClassifier implements Classifier{
         
         //base cases 
 
+<<<<<<< HEAD
         if(data.isEmpty()){
             int splitFeat =parentNode.getFeatureIndex();
+=======
+        
+        //find majority label 
+        Integer survived = 0;
+        Integer notsurvived = 0;
+
+        //DO WE NEED TO CHANGE TO MAJLABEL OF A SPECIFIC FEATURE VALUE?
+
+        // tally up label for examples that survived or didnt survive 
+        for (int i=0; i< ourExamples.size();i++){
+            if (ourExamples.get(i).getLabel() == 1){ //calculate number of examples that survived
+                survived++;
+            }else if (ourExamples.get(i).getLabel() == -1){ //calculate number of examples that didn't survive
+                notsurvived++;
+            }
+        }
+
+        Integer majorityLabelCount = Math.max(survived, notsurvived); 
+        Integer minorityLabelCount = Math.min(survived, notsurvived); 
+        Integer majorityLabelBinary = 0; 
+        Integer minorityLabelBinary = 0; 
+        if (majorityLabelCount == notsurvived){//convert majoritylabel from value to class/label binary (-1 or 1)
+            majorityLabelBinary = -1; 
+            minorityLabelBinary = 1;
+        }else{
+            majorityLabelBinary = 1; 
+            minorityLabelBinary = -1;
+        }
+
+        // base cases 
+        // ADD IN DEPTH LIMIT BASE CASE
+        // 1 will go right for feature and 0 go left for feature 
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
 
         }
         // If we’re out of features to examine, pick majority label
         if(featuresLeft.isEmpty()){
+<<<<<<< HEAD
             return getMajorityLabel(data);
+=======
+        double majorityLabelBinaryDouble = Double.valueOf(majorityLabelBinary);
+        double minorityLabelBinaryDouble = Double.valueOf(minorityLabelBinary);
+        if(majorityLabelBinary == 1){
+            rightLeaf = new DecisionTreeNode(majorityLabelBinaryDouble); 
+            leftLeaf = new DecisionTreeNode(minorityLabelBinaryDouble);
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
         }
         // If all data belong to the same class, pick that label
         if(labelEquality(data)){
@@ -87,6 +129,7 @@ public class OurClassifier implements Classifier{
             return getMajorityLabel(data);
         }
 
+<<<<<<< HEAD
 
         //Not at a base case:
         int sFeature = getSplitFeature(data, featuresLeft);
@@ -103,6 +146,20 @@ public class OurClassifier implements Classifier{
             else{
                 rightList.add(data.get(i));
             }
+=======
+	}
+
+        }
+  
+        for (int i=1; i< ourExamples.size();i++){
+            // If all data belong to the same class, pick that label
+            if(compareValue.getLabel() != ourExamples.get(i).getLabel()){
+                firstCase = false;
+            } // If all the data have the same feature values, pick majority label
+            else if(!ourExamples.get(i).equalFeatures(compareValue) ){
+                secondCase = false;
+            } 
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
         }
 
         int newDepth = maxDepth--;
@@ -171,7 +228,16 @@ public class OurClassifier implements Classifier{
                 Integer bin0_majority = Math.max(bin0_died, bin0_survived);
                 Integer bin1_majority = Math.max(bin1_died, bin1_survived);
 
+<<<<<<< HEAD
                 double error =  (1 - ((bin0_majority + bin1_majority)/ (double)data.size()));
+=======
+            double error =  (1 - ((bin0_majority + bin1_majority)/listData.size()));
+
+            result.add(error);
+        });
+        return result;
+	}
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
 
                 result.put(feat, error);
     
@@ -225,11 +291,14 @@ public class OurClassifier implements Classifier{
     
 }
 class Main {
+<<<<<<< HEAD
     // public static int bin0_died = 0;
     // public static int bin0_survived = 0;
     // public static int bin1_died = 0;
     // public static int bin1_survived = 0;
     // public static int splitFeature;
+=======
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
 
 
     // public static boolean labelEquality(ArrayList<Example> data){
@@ -456,6 +525,15 @@ class Main {
 
      DataSet ourData = new DataSet("C:\\Users\\jvw42\\ML\\assign2-starter\\code\\ml\\data\\titanic-train.csv");
   
+<<<<<<< HEAD
+=======
+    public static void main(String[] args) {
+    // titanic train dataset
+    // DataSet ourData = new DataSet("C:\\Users\\jvw42\\ML\\assign2-starter\\code\\ml\\data\\titanic-train.csv");
+
+    DataSet ourData = new DataSet("/Users/ASW/Documents/GitHub/ML-Decision-Tree/code/ml/data/titanic-train.csv");
+   
+>>>>>>> fbf2bb0a30c4c3c6cc37ca5f4efd6703f7678de9
       // print the object
       System.out.println(ourData.getAllFeatureIndices());
       //train(ourData.getData(), ourData.getAllFeatureIndices());
