@@ -49,9 +49,8 @@ public class OurClassifier implements Classifier{
             }else if (ourExamples.get(i).getLabel() == -1){ //calculate number of examples that didn't survive
                 notsurvived++;
             }
-<<<<<<< HEAD
-=======
         }
+
         Integer majorityLabelCount = Math.max(survived, notsurvived); 
         Integer minorityLabelCount = Math.min(survived, notsurvived); 
         Integer majorityLabelBinary = 0; 
@@ -79,7 +78,6 @@ public class OurClassifier implements Classifier{
         if(majorityLabelBinary == 1){
             rightLeaf = new DecisionTreeNode(majorityLabelBinaryDouble); 
             leftLeaf = new DecisionTreeNode(minorityLabelBinaryDouble);
->>>>>>> c0c8560d59cb6a5662b63c69c71030c9b41a220b
         }
         else{
             leftLeaf = new DecisionTreeNode(majorityLabelBinaryDouble); 
@@ -92,10 +90,8 @@ public class OurClassifier implements Classifier{
         if(ourExamples.isEmpty()){
             
 
-<<<<<<< HEAD
 	}
 
-=======
         }
   
         for (int i=1; i< ourExamples.size();i++){
@@ -167,7 +163,6 @@ public class OurClassifier implements Classifier{
         });
         return result;
 	}
->>>>>>> c0c8560d59cb6a5662b63c69c71030c9b41a220b
 
     
 	public ArrayList<Double> eList ( DataSet data) {
@@ -212,10 +207,7 @@ public class OurClassifier implements Classifier{
 	}
 
 
-<<<<<<< HEAD
    
-=======
->>>>>>> c0c8560d59cb6a5662b63c69c71030c9b41a220b
 
 	@Override
 	public double classify(Example example) {
@@ -226,7 +218,6 @@ public class OurClassifier implements Classifier{
     
 }
 class Main {
-<<<<<<< HEAD
 
     public static int bin0_died = 0;
     public static int bin0_survived = 0;
@@ -289,14 +280,12 @@ class Main {
 
      DataSet ourData = new DataSet("C:\\Users\\jvw42\\ML\\assign2-starter\\code\\ml\\data\\titanic-train.csv");
   
-=======
     public static void main(String[] args) {
     // titanic train dataset
     // DataSet ourData = new DataSet("C:\\Users\\jvw42\\ML\\assign2-starter\\code\\ml\\data\\titanic-train.csv");
 
     DataSet ourData = new DataSet("/Users/ASW/Documents/GitHub/ML-Decision-Tree/code/ml/data/titanic-train.csv");
    
->>>>>>> c0c8560d59cb6a5662b63c69c71030c9b41a220b
       // print the object
       System.out.println(eList(ourData));
       System.out.println(ourData.getData().get(0).getLabel());
