@@ -1,0 +1,113 @@
+Allison Sullivan Wu 
+Joe Williams
+
+
+
+1. What is the accuracy of the random classifier on the Titanic data set from assignment 1. To
+calculate this, generate a random 80/20 split (using dataset.split(0.8)) train the model
+on the 80% fraction and then evaluate the accuracy on the 20% fraction. Repeat this 100
+times and average the result (hint: do the repetition in code :).
+
+
+The accuracy of the random classifier on the Titanic data set from assignment 1 is: 0.40051820728291304
+
+
+2. What is the accuracy of your decision tree classifier on the Titanic data set with unlimited
+depth. As above, average the results over 100 random 80/20 splits. 
+
+
+The accuracy of our decision tree classifier on the Titanic data set is: 0.15635854341736674
+
+3. What is the best depth limit to use for this data? To answer this, do the same calculations
+as above (average 100 experiments), but do it for increasing depth limits, specifically 0, 1, 2,
+..., 10. Show all of your results.
+0 = 0.12007002801120427
+1 = 0.15648459383753482
+2 = 0.15677871148459363
+3 = 0.15589635854341716
+4 = 0.1550700280112043
+5 = 0.15617647058823508
+6 = 0.1550140056022407
+7 = 0.15606442577030794
+8 = 0.1553501400560222
+9 = 0.15558823529411744
+10 = 0.15680672268907542
+the best depth limit to use for this data is depth 2, which gave us a result of 0.15677871148459363. However, the results 
+based on the different depth limits bareley differed. 
+
+4. Do we see overfitting with this data set? Repeat the experiment from question 3 with increasing depth (0, 1, ..., 10) and calculate the accuracy this time on both the testing data
+(like before) and the training data. Create a graph with these results and then provide a 1-2
+sentence answer describing the graph.
+
+See graph titled "Increasing depth with training and testing data"
+We do see overfitting with this data set. The training data was much more accurate than the testing data. 
+Also, as we increased the depth we continue to increase the accuracy for the training data. Thus,
+both of these lines show that overfitting is occuring. 
+
+Accuracy for testing data:
+0 = 0.12007002801120427
+1 = 0.15648459383753482
+2 = 0.15677871148459363
+3 = 0.15589635854341716
+4 = 0.1550700280112043
+5 = 0.15617647058823508
+6 = 0.1550140056022407
+7 = 0.15606442577030794
+8 = 0.1553501400560222
+9 = 0.15558823529411744
+10 = 0.15680672268907542
+Accuracy for training data:
+0 = 0.4751120448179266,
+1 = 0.5493347338935574,
+2 = 0.5743464052287587,
+3 = 0.5866526610644266,
+4 = 0.5941064425770309,
+5 =0.5989892623716152, 
+6 = 0.6025770308123246, 
+7 = 0.6051768207282909, 
+8 = 0.6073669467787111, 
+9 = 0.6089173669467784,
+10 = 0.6103361344537814
+
+
+
+5. How does the amount of training data affect performance? To answer this, do the same
+calculations as above (average 100 experiments), but start with splits of 0.05 (5% of the data
+used for training) and work up to splits of size 0.9 (90% of the data used for training) in
+increments of 0.05. For these experiments use full depth trees, i.e. trees without any depth
+limit. Create a graph with these results and then provide a 1-2 sentence answer describing
+the graph.
+
+See graph titled "Does training data affect performance?" The line in the graph decreases as the start
+splits increase. This graph shows that accuracy increases while the size of the splits decrease. This shows 
+that less overfitting is occuring. 
+
+
+0.05% = 0.690322128851541, 
+0.10% = 0.682556022408964,
+0.15% = 0.6696171802054157, 
+0.20% = 0.6553396358543417, 
+0.25% = 0.6398403361344538, 
+0.30% = 0.623410364145658, 
+0.35% = 0.6064745898359344, 
+0.40% = 0.5888742997198881, 
+0.45% = 0.5709866168689702, 
+0.50% = 0.5526484593837546, 
+0.55% = 0.5343799337916992, 
+0.60% = 0.5157633053221302, 
+0.65% = 0.49699741435035716, 
+0.70% = 0.4782342937174882, 
+0.75% = 0.45940242763772265, 
+0.80% = 0.44047006302521063, 
+0.85% = 0.4214120942494649, 
+0.90% = 0.4023926237161534, 
+0.95% = 0.38327436237653006
+
+
+6. What does the training data size experiment tell us?
+
+The size of the training data for this experiment shows us that the less data we took to train the more accurate our model became.
+This is most likely because the decision tree is more volatile and unpredictable with very few training examples. This is good for
+our purposes because as we saw earlier our model is pretty inaccurate and doesn't work well as it is. The more data it recieves to
+train the more it confirms this.
+

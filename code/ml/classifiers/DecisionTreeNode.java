@@ -1,3 +1,4 @@
+// Allison Sullivan Wu & Joe Williams Assignment 2 
 package ml.classifiers;
 
 import java.util.Map;
@@ -136,6 +137,26 @@ public class DecisionTreeNode {
 	 */
 	public String treeString(Map<Integer,String> featureMap){
 		return treeStringHelper("  ", featureMap);
+	}
+	/**
+	 * Get a formatted string representation of this DecisionTreeNode and all nodes below it.
+	 * 
+	 * @return a string representation of the decision tree
+	 */
+	public String ourString(){
+
+		if( leaf ){
+			return "predict= " + Double.toString(prediction);
+		}
+		else{
+			String result; 
+
+			result = Integer.toString(featureIndex);
+			return "(" + result + "\n" + 
+		            " Left " + left.ourString() + "\n" +
+					" Right" + right.ourString() + ")";
+		}
+		
 	}
 
 	/**
